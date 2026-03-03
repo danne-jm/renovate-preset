@@ -19,7 +19,7 @@
     {  
       "matchPackagePrefixes": ["@gef1/"],  
       "matchUpdateTypes": ["major"],  
-      "groupName": "all major dependencies from gef1",  
+      "groupName": "all major dependencies from gef1 aaaaa",  
       "groupSlug": "gef1-update", // Renovate will automatically make this "major-gef1...."
       
     },  
