@@ -1,0 +1,49 @@
+{
+
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    
+    "description": "DAX preset for JS/TS application",
+
+    "extends" : [
+      "config:recommended",
+      ":disableDependencyDashboard"
+    ],
+    
+    "ignorePresets": [
+      "group:monorepos",
+      "group:recommended"
+    ],
+
+    "packageRules": [
+    // Group major updates from gef1  
+    {  
+      "matchPackagePrefixes": ["@gef1/"],  
+      "matchUpdateTypes": ["major"],  
+      "groupName": "all major dependencies from gef1",  
+      "groupSlug": "gef1-update", // Renovate will automatically make this "major-gef1...."
+      
+    },  
+    // Group non-major updates from gef1  
+    {  
+      "matchPackagePrefixes": ["@gef1/"],  
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],  
+      "groupName": "all non-major dependencies from gef1",  
+      "groupSlug": "gef1-minor-patch",  // Stays exactly as written
+    },  
+    // Group all other major updates (catch all)
+    {   
+      "excludePackagePrefixes": ["@gef1/", "@gef2/"],  
+      "matchUpdateTypes": ["major"],  
+      "groupName": "all other major dependencies",  
+      "groupSlug": "other-update", // Renovate will automatically make this "major-other..."
+    },  
+    // Group all other non-major updates (catch all) 
+    {  
+      "excludePackagePrefixes": ["@gef1/", "@gef2/"],  
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],  
+      "groupName": "all other non-major dependencies",  
+      "groupSlug": "other-minor-patch",  
+    },  
+  ],
+
+}
